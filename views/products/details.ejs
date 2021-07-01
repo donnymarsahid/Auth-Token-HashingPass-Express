@@ -1,0 +1,39 @@
+<%- include('layout/header') %>
+<div class="container">
+  <div class="card">
+    <!-- header -->
+    <header class="mb-5">
+      <nav class="nav">
+        <a class="nav-link active nav-brand" href="/products"><i class="fas fa-cart-arrow-down"></i> Electronic<span class="fw-normal">_Store</span> </a>
+        <a class="btn-add ms-auto me-5" href="/products"><< Back</a>
+      </nav>
+    </header>
+    <!-- List Group -->
+    <div class="list-group">
+      <div class="list-group-item fw-bold" aria-current="true" style="font-size: 25px; background-color: #ffcd39"><i class="fas fa-info-circle"></i> Details</div>
+      <table border="0" cellPadding="10" cellSpacing="0" className="mt-2">
+        <tr>
+          <th>Name products :</th>
+          <td><%= user.name %></td>
+        </tr>
+        <tr>
+          <th>Stock on hand :</th>
+          <td><%= user.quantity %></td>
+        </tr>
+        <tr>
+          <th>Price :</th>
+          <td><%= user.price %></td>
+        </tr>
+        <tr>
+          <th>Created at :</th>
+          <td><%= user.created_at %></td>
+        </tr>
+        <tr>
+          <th>Update at :</th>
+          <td><%= user.update_at %></td>
+        </tr>
+      </table>
+    </div>
+  </div>
+</div>
+<%- include('layout/footer') %>

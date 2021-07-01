@@ -46,11 +46,10 @@
                 <h5 class="card-title fw-bold"><%= data.name %></h5>
                 <p>Rp. <%= data.price %></p>
                 <p class="text-muted">Stock : <%= data.quantity %></p>
-                <p class="text-muted">Created : <%= data.created_at %></p>
-                <p class="text-muted">Update : <%= data.update_at %></p>
                 <a href="/products/edit/<%= data.id_products %>" class="btn btn-product"><i class="fas fa-cog"></i> Edit</a>
+                <a href="/products/details/<%= data.id_products %>" class="btn btn-product"><i class="fas fa-info"></i> Details</a>
                 <button onclick="return confirm('Are you sure?')" style="border: none">
-                  <a href="products/delete/<%= data.id_products %>" class="btn btn-product"><i class="fas fa-trash-alt"></i> Delete</a>
+                  <a href="products/delete/<%= data.id_products %>" class="btn btn-product"><i class="fas fa-trash-alt"></i></a>
                 </button>
               </div>
             </div>

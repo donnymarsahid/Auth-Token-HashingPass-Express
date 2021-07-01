@@ -1,5 +1,4 @@
 var express = require('express');
-const flash = require('express-flash');
 var router = express.Router();
 
 // Get Database
@@ -108,6 +107,18 @@ router.get('/delete/:userId', function (req, res, next) {
   dbConnection.query(sql, (err, result) => {
     if (err) throw err;
     res.redirect('/products');
+  });
+});
+
+// Details Product
+router.get('/details/:detailId', function (req, res, next) {
+  let detailId = req.params.detailId;
+  let sql = `SELECT * FROM products where id_products = ${detailId}`;
+  dbConnection.query(sql, (err, result) => {
+    if (err) throw err;
+    res.render('products/details', {
+      user: result[0],
+    });
   });
 });
 
