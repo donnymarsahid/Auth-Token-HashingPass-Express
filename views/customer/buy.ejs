@@ -1,0 +1,48 @@
+<%- include('layout/header') %> 
+    <div class="container mb-5">
+      <div class="card">
+        <!-- header -->
+        <header>
+          <nav class="nav">
+            <a class="nav-link active nav-brand" href="/"><i class="fas fa-cart-arrow-down"></i> Electronic<span class="fw-normal">_Store</span> </a>
+            <a class="btn-add ms-auto me-5" href="/"><< Back</a>
+          </nav>
+        </header>
+        <ul class="list-group mt-4" ">
+          <li style="background-color: rgb(26, 26, 26,0.1);" class="list-group-item fw-bold" >Description</li>
+          <li style="background-color: rgb(26, 26, 26,0.1);" class="list-group-item "><%= user.name %> </li>
+          <li style="background-color: rgb(26, 26, 26,0.1);" class="list-group-item">Stock : <%= user.quantity %></li>
+          <li style="background-color: rgb(26, 26, 26,0.1);" class="list-group-item">Rp. <%= user.price %></li>
+        </ul>
+        <!-- success -->
+        <% if (messages.successadd) { %>
+          <div class="alert alert-danger" role="alert"><%- messages.successadd %></div>
+          <% } %>
+        <form class="mt-2" action="/save" method="post">
+          <div class="mb-3">
+            <label for="name" class="form-label">Name : </label>
+            <input type="text" class="form-control" id="name" placeholder="input your product" autocomplete="off" name="name" />
+          </div>
+          <div class="mb-3">
+            <label for="tel" class="form-label">No. Telephone : </label>
+            <input type="tel" class="form-control" id="tel" placeholder="ex: 0838-XXXX-XXXX" autocomplete="off" name="no_telp" />
+          </div>
+          <div class="mb-3">
+            <label for="address" class="form-label">Address : </label>
+            <input type="text" class="form-control" id="address" placeholder="input your address" autocomplete="off" name="address" />
+          </div>
+          <div class="mb-3">
+            <label for="buy" class="form-label">Buy : </label>
+            <input type="text" class="form-control" id="buy" placeholder="ex: Televisi / Rp. 100.000" autocomplete="off" name="buy" />
+          </div>
+          <div class="mb-3">
+            <label for="date" class="form-label">Date : </label>
+            <input type="date" class="form-control" id="date" autocomplete="off" name="date" />
+          </div>
+          <button type="submit" class="btn btnAdd" style="width: 100px;">Buy</button>
+        </form>
+    </div>
+    <script src="javascripts/script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+  </body>
+</html>

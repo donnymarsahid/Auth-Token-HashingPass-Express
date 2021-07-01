@@ -1,0 +1,42 @@
+<%- include('layout/header') %>
+<div class="container">
+  <div class="card">
+    <!-- header -->
+    <header>
+      <nav class="nav">
+        <a class="nav-link active nav-brand" href="/products"><i class="fas fa-cart-arrow-down"></i> Electronic<span class="fw-normal">_Store</span> </a>
+        <a class="btn-add ms-auto me-5" href="/products"><< Back</a>
+      </nav>
+    </header>
+    <!-- success -->
+    <div class="container-messages">
+      <!-- success -->
+      <% if (messages.success) { %>
+      <div class="alert alert-danger" role="alert"><%- messages.success %></div>
+      <% } %>
+    </div>
+    <!-- form -->
+    <form class="mt-5" action="/products/update" method="post">
+      <!-- hidden -->
+      <input type="hidden" name="id_products" value="<%= user.id_products %> " />
+      <div class="mb-3">
+        <label for="name" class="form-label">Name Products : </label>
+        <input type="text" class="form-control" id="name" placeholder="input your product" autocomplete="off" name="name" value="<%= user.name %>" />
+      </div>
+      <div class="mb-3">
+        <label for="stock" class="form-label">Stock Products : </label>
+        <input type="number" class="form-control" id="stock" placeholder="input product stock" autocomplete="off" name="quantity" value="<%= user.quantity %>" />
+      </div>
+      <div class="mb-3">
+        <label for="price" class="form-label">Price : </label>
+        <input type="text" class="form-control" id="rupiah" placeholder="input product stock" autocomplete="off" name="price" value="<%= user.price %>" />
+      </div>
+      <div class="mb-3">
+        <label for="images" class="form-label">Images : </label>
+        <input type="file" class="form-control" id="images" name="images" value="<%= user.images %>" />
+      </div>
+      <button type="submit" class="btn btnAdd">Save Changes</button>
+    </form>
+  </div>
+</div>
+<%- include('layout/footer') %>

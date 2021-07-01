@@ -1,0 +1,82 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+/* body */
+body {
+  font-family: 'Poppins', sans-serif;
+}
+.container {
+  margin-top: 20px;
+}
+
+/* Header */
+.nav {
+  padding: 10px;
+  box-sizing: border-box;
+  background-color: #ffcd39;
+}
+
+.nav-brand {
+  color: #333333;
+  font-weight: 600;
+  transition: 0.2s;
+  font-size: 20px;
+}
+.nav-brand:hover {
+  color: rgb(230, 230, 230);
+}
+.btn-add {
+  color: rgb(51, 51, 51);
+  font-weight: 600;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  transition: 0.2s;
+}
+.btn-add:hover {
+  color: rgb(230, 230, 230);
+}
+.fa-plus {
+  background-color: white;
+  margin-left: 5px;
+  border-radius: 50px;
+  padding: 8px;
+  color: #333333;
+  box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.1);
+  transition: 0.2s;
+}
+.fa-plus:hover {
+  color: white;
+  background-color: transparent;
+  box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.26);
+}
+/* Header End */
+/* Products Start */
+.products {
+  margin-top: 30px;
+}
+.btn-product,
+.btnAdd {
+  background-color: #ffcd39;
+  transition: 0.2s;
+}
+.btn-product:hover,
+.btnAdd:hover {
+  background-color: #ffd760;
+  box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.226);
+}
+/* Products End */
+/* Button Login */
+.btn-login {
+  font-weight: bold;
+  border: solid 2px rgb(26, 26, 26, 0.5);
+  transition: 0.2s;
+}
+.btn-login a {
+  text-decoration: none;
+  color: rgb(22, 22, 22);
+}
+.btn-login:hover {
+  background-color: white;
+  font-weight: bold;
+  box-shadow: 0 0 3px 2px rgba(0, 0, 0, 0.26);
+}

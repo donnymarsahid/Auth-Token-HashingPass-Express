@@ -1,0 +1,29 @@
+<%- include('layout/header') %>
+<div class="container">
+  <div class="card">
+    <!-- header -->
+    <header>
+      <nav class="nav">
+        <a class="nav-link active nav-brand" href="/products"><i class="fas fa-cart-arrow-down"></i> Electronic<span class="fw-normal">_Store</span> </a>
+        <a class="btn-add ms-auto me-5" href="/products"><< Back</a>
+      </nav>
+    </header>
+    <div class="row mt-3">
+      <% data.forEach(data => { %>
+      <div class="col-md-4 mb-3">
+        <div class="card" style="width: 18rem">
+          <div class="card-body" style="background-color: rgba(0, 0, 0, 0.082)">
+            <h5 class="card-title fw-bold">Transaction</h5>
+            <p class="card-text"><span class="fw-bold"> Name :</span> <%= data.name %></p>
+            <p class="card-text"><span class="fw-bold">No. Telp :</span> <%= data.no_telp %></p>
+            <p class="card-text"><span class="fw-bold">Address :</span> <%= data.address %></p>
+            <p class="card-text"><span class="fw-bold">Date :</span> <%= data.date %></p>
+            <p class="card-text"><span class="fw-bold">Buy :</span> <%= data.buy %></p>
+          </div>
+        </div>
+      </div>
+      <% }) %>
+    </div>
+  </div>
+</div>
+<%- include('layout/footer') %>

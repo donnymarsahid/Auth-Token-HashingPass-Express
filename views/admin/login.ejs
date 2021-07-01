@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login system with nodejs and mysql database</title>
+    <link rel="stylesheet" href="stylesheets/login.css" />
+  </head>
+  <body>
+    <section class="box">
+      <div class="design">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+      <div class="form">
+        <h2>Admin Login</h2>
+        <!-- error -->
+        <% if (messages.login) { %>
+        <div class="alert alert-danger" role="alert"><%- messages.login %></div>
+        <% } %>
+        <form action="/login/login" method="POST">
+          <input type="text" name="username" class="input-field" placeholder="Username" />
+          <input type="password" name="password" class="input-field" placeholder="Password" />
+          <input type="submit" class="btn" value="LOGIN" />
+        </form>
+      </div>
+    </section>
+  </body>
+</html>
