@@ -80,3 +80,22 @@ body {
   font-weight: bold;
   box-shadow: 0 0 3px 2px rgba(0, 0, 0, 0.26);
 }
+/* footer */
+/* icon */
+.container-footer {
+  display: flex;
+  width: 90%;
+  margin: auto;
+  justify-content: space-around;
+}
+.container-footer i {
+  color: rgb(31, 31, 31);
+  font-size: 25px;
+  transition: 0.2s;
+}
+.container-footer i {
+  cursor: pointer;
+}
+.container-footer i:hover {
+  color: rgb(214, 214, 214);
+}

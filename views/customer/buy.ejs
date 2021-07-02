@@ -1,5 +1,5 @@
 <%- include('layout/header') %> 
-    <div class="container mb-5">
+    <div class="container">
       <div class="card">
         <!-- header -->
         <header>
@@ -25,7 +25,11 @@
           </div>
           <div class="mb-3">
             <label for="tel" class="form-label">No. Telephone : </label>
-            <input type="tel" class="form-control" id="tel" placeholder="ex: 0838-XXXX-XXXX" autocomplete="off" name="no_telp" required/>
+            <input type="tel" class="form-control" id="tel" pattern="[0-9]{4}-[0-9]{4}-[0-9]{4}" placeholder="ex: 0838-XXXX-XXXX" autocomplete="off" name="no_telp" required/>
+          </div>
+          <div class="mb-3">
+            <label for="email" class="form-label">Email : </label>
+            <input type="email" class="form-control" id="email" placeholder="input your email" autocomplete="off" name="email" required />
           </div>
           <div class="mb-3">
             <label for="address" class="form-label">Address : </label>
@@ -33,7 +37,7 @@
           </div>
           <div class="mb-3">
             <label for="buy" class="form-label">Buy : </label>
-            <input type="text" class="form-control" id="buy" placeholder="input : '' <%= user.name %> ''" autocomplete="off" name="buy" required/>
+            <input type="text" class="form-control" id="buy" placeholder="input : '' <%= user.name %> ''" autocomplete="off" name="buy"  value="<%= user.name %>" required/>
           </div>
           <div class="mb-3">
             <label for="date" class="form-label">Date : </label>
@@ -41,10 +45,12 @@
           </div>
           <div class="mb-3">
             <label for="price" class="form-label">Price : </label>
-            <input type="price" class="form-control" id="rupiah" autocomplete="off" name="price" placeholder="input : '' Rp. <%= user.price %> ''" required/>
+            <input type="price" class="form-control" id="rupiah" autocomplete="off" name="price" placeholder="input : '' Rp. <%= user.price %> ''" value="Rp. <%= user.price %>" required/>
           </div>
           <button type="submit" class="btn btnAdd" style="width: 100px;">Buy</button>
         </form>
     </div>
-<%- include('layout/footer') %> 
-
+    </div>
+    <%- include('layout/footer') %> 
+    
+    

@@ -31,7 +31,7 @@ router.get('/buy/:buyId', function (req, res, next) {
 
 //post buy
 router.post('/save', function (req, res, next) {
-  let formData = { name: req.body.name, no_telp: req.body.no_telp, address: req.body.address, buy: req.body.buy, date: req.body.date, price: req.body.price };
+  let formData = { name: req.body.name, no_telp: req.body.no_telp, email: req.body.email, address: req.body.address, buy: req.body.buy, date: req.body.date, price: req.body.price };
 
   // insert query
   dbConnection.query('INSERT INTO customer SET ?', formData, function (err, result) {
@@ -42,7 +42,7 @@ router.post('/save', function (req, res, next) {
       // render to add.ejs
       res.render('customer/buy');
     } else {
-      req.flash('successadd', 'successfully buy product !');
+      req.flash('successadd', 'successfully buy product ! <a href="https://gmail.com" style="text-decoration: none">cek your email to confirm </a>');
       res.redirect('/');
     }
   });
