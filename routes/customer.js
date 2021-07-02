@@ -30,7 +30,7 @@ router.get('/buy/:buyId', function (req, res, next) {
 
 //post buy
 router.post('/save', function (req, res, next) {
-  let formData = { name: req.body.name, no_telp: req.body.no_telp, email: req.body.email, address: req.body.address, buy: req.body.buy, date: req.body.date, price: req.body.price };
+  let formData = { name: req.body.name, no_telp: req.body.no_telp, email: req.body.email, address: req.body.address, buy: req.body.buy, product: req.body.product, date: req.body.date, price: req.body.price };
 
   // insert query
   dbConnection.query('INSERT INTO customer SET ?', formData, function (err, result) {

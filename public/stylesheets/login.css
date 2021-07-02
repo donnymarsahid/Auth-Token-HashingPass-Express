@@ -1,10 +1,10 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
 
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Poppins', sans-serif;
   outline: none;
   border: none;
 }
@@ -14,7 +14,7 @@ body {
   justify-content: center;
   align-items: center;
   min-height: 100vh;
-  background: linear-gradient(-45deg, #7f379b, #ffa26c);
+  background: linear-gradient(-45deg, #f0f0f0, #ffcd39);
 }
 
 .box {
@@ -39,7 +39,7 @@ body {
   width: 190px;
   height: 90px;
   border-radius: 50px;
-  background: linear-gradient(-90deg, #7f379b, #ff6a85);
+  background: linear-gradient(-90deg, #ffcd39, #ff6a85);
   transform: rotate(45deg);
   position: absolute;
   top: -40px;
@@ -50,7 +50,7 @@ body {
   width: 450px;
   height: 230px;
   border-radius: 200px;
-  background: linear-gradient(-90deg, #7f379b, #ff6a85);
+  background: linear-gradient(-90deg, #ffcd39, #ff6a85);
   transform: rotate(45deg);
   position: absolute;
   top: 0;
@@ -62,7 +62,7 @@ body {
   width: 190px;
   height: 70px;
   border-radius: 50px;
-  background: linear-gradient(-90deg, #7f379b, #ff92a6);
+  background: linear-gradient(-90deg, #ffcd39, #ff92a6);
   transform: rotate(45deg);
   position: absolute;
   bottom: 70px;
@@ -73,7 +73,7 @@ body {
   width: 190px;
   height: 70px;
   border-radius: 50px;
-  background: linear-gradient(-90deg, #7f379b, #ffa26c);
+  background: linear-gradient(-90deg, #ffcd39, #ffa26c);
   transform: rotate(45deg);
   position: absolute;
   bottom: -50px;
@@ -112,10 +112,11 @@ body {
 .btn {
   width: 100%;
   height: 40px;
-  background-color: #7f379b;
-  color: #fff;
+  background-color: #ffcd39;
+  color: rgb(51, 51, 51);
   letter-spacing: 1px;
   font-size: 1em;
   margin-top: 15px;
   border-radius: 5px;
+  font-weight: 600;
 }

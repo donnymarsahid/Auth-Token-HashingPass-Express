@@ -9,7 +9,7 @@
           </nav>
         </header>
         <ul class="list-group mt-4" ">
-          <li style="background-color: rgb(26, 26, 26,0.1);font-size: 20px;" class="list-group-item fw-bold" >Description</li>
+          <li style="background-color: rgb(26, 26, 26,0.1);font-size: 20px;" class="list-group-item fw-bold" >Description Product</li>
           <li style="background-color: rgb(26, 26, 26,0.1);" class="list-group-item "><%= user.name %> </li>
           <li style="background-color: rgb(26, 26, 26,0.1);" class="list-group-item">Stock : <%= user.quantity %></li>
           <li style="background-color: rgb(26, 26, 26,0.1);" class="list-group-item">Rp. <%= user.price %></li>
@@ -21,7 +21,7 @@
         <form class="mt-2" action="/save" method="post">
           <div class="mb-3">
             <label for="name" class="form-label">Name : </label>
-            <input type="text" class="form-control" id="name" placeholder="input your product" autocomplete="off" name="name" required/>
+            <input type="text" class="form-control" id="name" placeholder="input your name" autocomplete="off" name="name" required/>
           </div>
           <div class="mb-3">
             <label for="tel" class="form-label">No. Telephone : </label>
@@ -35,17 +35,26 @@
             <label for="address" class="form-label">Address : </label>
             <input type="text" class="form-control" id="address" placeholder="input your address" autocomplete="off" name="address" required />
           </div>
-          <div class="mb-3">
-            <label for="buy" class="form-label">Buy : </label>
-            <input type="text" class="form-control" id="buy" placeholder="input : '' <%= user.name %> ''" autocomplete="off" name="buy"  value="<%= user.name %>" required/>
-          </div>
-          <div class="mb-3">
-            <label for="date" class="form-label">Date : </label>
-            <input type="date" class="form-control" id="date" autocomplete="off" name="date" required />
+          <label for="buy" class="form-label">Buy : </label>
+          <select class="form-select" aria-label="Default select example" name="buy">
+            <option selected>choose how much to buy the product</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+          </select>
+          <div class="mb-3 mt-3">
+            <label for="buy" class="form-label">Product : </label>
+            <input type="text" class="form-control" id="buy" placeholder="input : '' <%= user.name %> ''" autocomplete="off" name="product"  value="<%= user.name %>" required style="background-color: rgba(195, 226, 110, 0.5);"/>
           </div>
           <div class="mb-3">
             <label for="price" class="form-label">Price : </label>
-            <input type="price" class="form-control" id="rupiah" autocomplete="off" name="price" placeholder="input : '' Rp. <%= user.price %> ''" value="Rp. <%= user.price %>" required/>
+            <input type="price" class="form-control" id="rupiah" autocomplete="off" name="price" placeholder="input : '' Rp. <%= user.price %> ''" value="Rp. <%= user.price %>" required style="background-color: rgba(195, 226, 110, 0.5);"/>
+          </div>
+          <div class="form-check mb-3">
+            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" required>
+            <label class="form-check-label" for="flexCheckDefault">
+              agree to buy the product
+            </label>
           </div>
           <button type="submit" class="btn btnAdd" style="width: 100px;">Buy</button>
         </form>
