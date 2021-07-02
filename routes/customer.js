@@ -1,5 +1,4 @@
 var express = require('express');
-const flash = require('express-flash');
 var router = express.Router();
 
 // Get Database
