@@ -69,6 +69,16 @@ router.post('/save', function (req, res, next) {
     // render to add.ejs with flash message
     res.render('products/add');
   }
+
+  if (images.length === 0) {
+    errors = true;
+
+    // set flash message
+    req.flash('error', 'Input Your Images !');
+    // render to add.ejs with flash message
+    res.render('products/add');
+  }
+
   // if no error
   if (!errors) {
     let formData = { name: req.body.name, quantity: req.body.quantity, price: req.body.price, images: req.body.images };
