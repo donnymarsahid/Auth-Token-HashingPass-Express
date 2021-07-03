@@ -18,14 +18,52 @@ router.post('/', (req, res, next) => {
   });
 });
 
+// Data token cookie for login save
+const crypto = require('crypto');
+const generateAuthToken = () => {
+  return crypto.randomBy;
+};
+const authTokens = {};
+
+// Login
+router.post('/login', (req, res, next) => {
+  var username = req.body.username;
+  var password = req.body.password;
+  dbConnection.query('SELECT * FROM admin where username = ? and password = ?', [username, password], function (err, results, fields) {
+    if (results.length > 0) {
+      const authToken = generateAuthToken();
+      const user = results;
+      authTokens[authToken] = user;
+      res.cookie('AuthToken', authToken);
+      res.redirect('/products');
+    } else {
+      req.flash('login', 'username / password is wrong!');
+      res.redirect('/login');
+    }
+  });
+});
+
+// Route for next token Products Login
+router.use((req, res, next) => {
+  // Get auth token from the cookies
+  const authToken = req.cookies['AuthToken'];
+
+  // Inject the user to the request
+  req.user = authTokens[authToken];
+
+  next();
+});
+
 // Get Products
 router.get('/', function (req, res, next) {
   dbConnection.query('SELECT * FROM products ORDER BY id_products desc', function (err, rows) {
-    if (err) {
-      req.flash('error', err);
-      res.render('products', { data: '' });
+    if (req.user) {
+      res.render('products', {
+        data: rows,
+      });
     } else {
-      res.render('products', { data: rows });
+      req.flash('errlogin', 'Please Login to continue');
+      res.render('admin/login');
     }
   });
 });
