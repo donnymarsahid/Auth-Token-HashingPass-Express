@@ -18,6 +18,10 @@
       <header>
         <nav class="nav">
           <a class="nav-link active nav-brand" href="/products"><i class="fas fa-cart-arrow-down"></i> Electronic<span class="fw-normal">_Store</span> </a>
+          <form class="d-flex" action="/products" method="post">
+            <input class="form-control me-2" type="search" placeholder="Search products.." aria-label="Search" name="search" autocomplete="off" />
+            <button class="btn btn-outline-success" type="submit">Search</button>
+          </form>
           <button class="btn btn-login ms-auto me-3"><a href="/products/transaction">Transaction</a></button>
           <a class="btn-add ms-auto me-3" href="/products/add">Add Products <i class="fas fa-plus ms-2"></i></a>
           <button class="btn btn-login ms-auto me-3" onclick="return confirm('Are you sure logout ?')"><a href="/">Logout</a></button>

@@ -4,6 +4,20 @@ var router = express.Router();
 // Get Database
 const dbConnection = require('../lib/database');
 
+// Search Products
+router.post('/', (req, res, next) => {
+  let search = req.body.search;
+  dbConnection.query('SELECT * FROM products WHERE name LIKE ?', ['%' + search + '%'], (err, rows) => {
+    if (!err) {
+      res.render('products', {
+        data: rows,
+      });
+    } else {
+      console.log(err);
+    }
+  });
+});
+
 // Get Products
 router.get('/', function (req, res, next) {
   dbConnection.query('SELECT * FROM products ORDER BY id_products desc', function (err, rows) {

@@ -2,9 +2,6 @@ var express = require('express');
 const flash = require('express-flash');
 const app = require('../app');
 var router = express.Router();
-// body-parser
-const bodyParser = require('body-parser');
-const encoder = bodyParser.urlencoded();
 
 // Get Database
 const dbConnection = require('../lib/database');
@@ -13,7 +10,7 @@ const dbConnection = require('../lib/database');
 router.get('/', (req, res, next) => {
   res.render('admin/login');
 });
-router.post('/login', encoder, (req, res, next) => {
+router.post('/login', (req, res, next) => {
   var username = req.body.username;
   var password = req.body.password;
   dbConnection.query('SELECT * FROM admin where username = ? and password = ?', [username, password], function (err, results, fields) {
