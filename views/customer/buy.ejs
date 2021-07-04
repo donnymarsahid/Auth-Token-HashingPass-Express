@@ -10,9 +10,9 @@
         </header>
         <ul class="list-group mt-4" ">
           <li style="background-color: rgb(26, 26, 26,0.1);font-size: 20px;" class="list-group-item fw-bold" >Description Product</li>
-          <li style="background-color: rgb(26, 26, 26,0.1);" class="list-group-item "><%= user.name %> </li>
-          <li style="background-color: rgb(26, 26, 26,0.1);" class="list-group-item">Stock : <%= user.quantity %></li>
-          <li style="background-color: rgb(26, 26, 26,0.1);" class="list-group-item">Rp. <%= user.price %></li>
+          <li style="background-color: rgb(26, 26, 26,0.1);" class="list-group-item "><%= data.name %> </li>
+          <li style="background-color: rgb(26, 26, 26,0.1);" class="list-group-item">Stock : <%= data.quantity %></li>
+          <li style="background-color: rgb(26, 26, 26,0.1);" class="list-group-item">Rp. <%= data.price %></li>
         </ul>
         <!-- success -->
         <% if (messages.successadd) { %>
@@ -44,11 +44,11 @@
           </select>
           <div class="mb-3 mt-3">
             <label for="buy" class="form-label">Product : </label>
-            <input type="text" class="form-control" id="buy" placeholder="input : '' <%= user.name %> ''" autocomplete="off" name="product"  value="<%= user.name %>" required style="background-color: rgba(195, 226, 110, 0.5);"/>
+            <input type="text" class="form-control" id="buy" placeholder="input : '' <%= data.name %> ''" autocomplete="off" name="product"  value="<%= data.name %>" required style="background-color: rgba(195, 226, 110, 0.5);"/>
           </div>
           <div class="mb-3">
             <label for="price" class="form-label">Price : </label>
-            <input type="price" class="form-control" id="rupiah" autocomplete="off" name="price" placeholder="input : '' Rp. <%= user.price %> ''" value="Rp. <%= user.price %>" required style="background-color: rgba(195, 226, 110, 0.5);"/>
+            <input type="price" class="form-control" id="rupiah" autocomplete="off" name="price" placeholder="input : '' Rp. <%= data.price %> ''" value="Rp. <%= data.price %>" required style="background-color: rgba(195, 226, 110, 0.5);"/>
           </div>
           <div class="form-check mb-3">
             <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" required>

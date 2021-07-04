@@ -23,6 +23,11 @@
     <div class="container">
       <!-- Jumbotron Start -->
       <div class="row jumbotron">
+        <% if (messages.successadd) { %>
+        <div class="alert alert-danger" role="alert"><%- messages.successadd %></div>
+        <% } %> <% if (messages.success) { %>
+        <div class="alert alert-danger" role="alert"><%- messages.success %></div>
+        <% } %>
         <div class="col-md-4">
           <div class="content mt-5">
             <h1>Welcome to</h1>
@@ -58,11 +63,7 @@
       <div class="card">
         <!-- success -->
         <!-- success -->
-        <% if (messages.successadd) { %>
-        <div class="alert alert-danger" role="alert"><%- messages.successadd %></div>
-        <% } %> <% if (messages.success) { %>
-        <div class="alert alert-danger" role="alert"><%- messages.success %></div>
-        <% } %>
+
         <!-- Products -->
         <div class="row products">
           <% if (!data.length) { %>

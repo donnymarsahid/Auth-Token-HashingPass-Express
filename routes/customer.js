@@ -37,7 +37,7 @@ router.get('/buy/:buyId', function (req, res, next) {
   dbConnection.query(sql, (err, result) => {
     if (err) throw err;
     res.render('customer/buy', {
-      user: result[0],
+      data: result[0],
     });
   });
 });
