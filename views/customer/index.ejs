@@ -13,18 +13,48 @@
     <link rel="stylesheet" href="stylesheets/style.css" />
   </head>
   <body>
+    <!-- Header  -->
+    <header>
+      <nav class="nav fixed-top shadow-sm">
+        <a class="nav-link active nav-brand" href="/products"><i class="fas fa-cart-arrow-down"></i> Electronic<span class="fw-normal">_Store</span> </a>
+        <button class="btn btn-login ms-auto me-3"><a href="/login">Login</a></button>
+      </nav>
+    </header>
     <div class="container">
-      <!-- Header  -->
-      <header>
-        <nav class="nav">
-          <a class="nav-link active nav-brand" href="/products"><i class="fas fa-cart-arrow-down"></i> Electronic<span class="fw-normal">_Store</span> </a>
-          <form class="d-flex" action="/" method="post">
+      <!-- Jumbotron Start -->
+      <div class="row jumbotron">
+        <div class="col-md-4">
+          <div class="content mt-5">
+            <h1>Welcome to</h1>
+            <h1 class="fw-bold">Electronic_Store</h1>
+            <br />
+            <p class="text-muted">
+              this website sells electronic <br />
+              goods with the best quality
+            </p>
+            <div class="shop-now mt-4">
+              <a href="#shop-now" class="page-scroll btn btn-warning fw-bold pt-3 pb-3 ps-5 pe-5 shadow-lg">Shop Now</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-8">
+          <img src="images/jumbotron.png" width="100%" />
+        </div>
+      </div>
+      <!-- Jumbotron End -->
+      <div class="text-product text-center mt-5" id="shop-now">
+        <h2>Products</h2>
+      </div>
+      <div class="row">
+        <div class="col-md-4"></div>
+        <div class="col-md-4">
+          <form class="d-flex mb-2" action="/" method="post">
             <input class="form-control me-2" type="search" placeholder="Search products.." aria-label="Search" name="search" autocomplete="off" />
             <button class="btn btn-outline-success" type="submit">Search</button>
           </form>
-          <button class="btn btn-login ms-auto me-3"><a href="/login">Login</a></button>
-        </nav>
-      </header>
+        </div>
+        <div class="col-md-4"></div>
+      </div>
       <div class="card">
         <!-- success -->
         <!-- success -->
@@ -43,7 +73,7 @@
           </div>
           <% } %> <% data.forEach(data => { %>
           <div class="col-md-4 mb-3">
-            <div class="card" style="width: 18rem">
+            <div class="card ms-3" style="width: 90%">
               <img src="images/<%= data.images %> " class="card-img-top" height="250px" />
               <div class="card-body">
                 <h5 class="card-title fw-bold"><%= data.name %></h5>
@@ -76,6 +106,13 @@
         </div>
       </div>
     </footer>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" referrerpolicy="no-referrer"></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.js"
+      integrity="sha512-xq+0+dRhI6SZOh+lDnMJEju2p2YPINflJLcYrRAsIMaXnJi6/V3lppCMCYsB2MLeF2E93r+fVo0MioY90pNzpw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
     <script src="javascripts/script.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
   </body>

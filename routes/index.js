@@ -21,7 +21,7 @@ router.post('/', (req, res, next) => {
 // Data token cookie for login save
 const crypto = require('crypto');
 const generateAuthToken = () => {
-  return crypto.randomBy;
+  return crypto.randomBytes(30).toString('hex');
 };
 const authTokens = {};
 
@@ -66,6 +66,12 @@ router.get('/', function (req, res, next) {
       res.render('admin/login');
     }
   });
+});
+
+// Logout
+router.get('/logout', function (req, res, next) {
+  res.clearCookie('AuthToken');
+  res.redirect('/login');
 });
 
 // Get add

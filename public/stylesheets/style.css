@@ -99,3 +99,18 @@ body {
 .container-footer i:hover {
   color: rgb(214, 214, 214);
 }
+
+/* Shop Now */
+.shop-now a {
+  font-size: 20px;
+}
+
+/* Jumbotron */
+.jumbotron {
+  margin-top: 100px;
+}
+
+/* Container Products */
+.container-products {
+  margin-top: 90px;
+}

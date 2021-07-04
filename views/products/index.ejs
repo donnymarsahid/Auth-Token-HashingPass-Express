@@ -13,20 +13,25 @@
     <link rel="stylesheet" href="stylesheets/style.css" />
   </head>
   <body>
-    <div class="container">
-      <!-- Header  -->
-      <header>
-        <nav class="nav">
-          <a class="nav-link active nav-brand" href="/products"><i class="fas fa-cart-arrow-down"></i> Electronic<span class="fw-normal">_Store</span> </a>
-          <form class="d-flex" action="/products" method="post">
-            <input class="form-control me-2" type="search" placeholder="Search products.." aria-label="Search" name="search" autocomplete="off" />
-            <button class="btn btn-outline-success" type="submit">Search</button>
-          </form>
-          <button class="btn btn-login ms-auto me-3"><a href="/products/transaction">Transaction</a></button>
-          <a class="btn-add ms-auto me-3" href="/products/add">Add Products <i class="fas fa-plus ms-2"></i></a>
-          <button class="btn btn-login ms-auto me-3" onclick="return confirm('Are you sure logout ?')"><a href="/">Logout</a></button>
-        </nav>
-      </header>
+    <!-- Header  -->
+    <header>
+      <nav class="nav fixed-top">
+        <a class="nav-link active nav-brand" href="/products"><i class="fas fa-cart-arrow-down"></i> Electronic<span class="fw-normal">_Store</span> </a>
+        <form class="d-flex" action="/products" method="post">
+          <input class="form-control me-2" type="search" placeholder="Search products.." aria-label="Search" name="search" autocomplete="off" />
+          <button class="btn btn-outline-success" type="submit">Search</button>
+        </form>
+        <button class="btn btn-login ms-auto me-3"><a href="/products/transaction">Transaction</a></button>
+        <a class="btn-add ms-auto me-3" href="/products/add">Add Products <i class="fas fa-plus ms-2"></i></a>
+        <button class="btn btn-login ms-auto me-3" onclick="return confirm('Are You Sure Logout?')">
+          <a href="/products/logout">Logout</a>
+        </button>
+      </nav>
+    </header>
+    <div class="container container-products">
+      <div class="text-product text-center">
+        <h2>Products</h2>
+      </div>
       <div class="card">
         <!-- success -->
         <!-- success -->
@@ -45,7 +50,7 @@
           </div>
           <% } %> <% data.forEach(data => { %>
           <div class="col-md-4 mb-3">
-            <div class="card" style="width: 18rem">
+            <div class="card ms-3" style="width: 90%">
               <img src="images/<%= data.images %> " class="card-img-top" height="250px" />
               <div class="card-body">
                 <h5 class="card-title fw-bold"><%= data.name %></h5>

@@ -1,3 +1,19 @@
+// page scroll
+$('.page-scroll').on('click', function (e) {
+  let href = $(this).attr('href');
+  let elemenHref = $(href);
+
+  $('html, body').animate(
+    {
+      scrollTop: elemenHref.offset().top - 80,
+    },
+    500,
+    'easeInOutExpo'
+  );
+
+  e.preventDevault();
+});
+
 // Rupiah Start
 var rupiah = document.getElementById('rupiah');
 rupiah.addEventListener('keyup', function (e) {
