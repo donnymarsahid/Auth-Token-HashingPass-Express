@@ -1,0 +1,35 @@
+<%- include('layout/header') %>
+<div class="container">
+  <div class="card">
+    <!-- header -->
+    <header>
+      <nav class="nav">
+        <a class="nav-link active nav-brand" href="/"><i class="fas fa-cart-arrow-down"></i> Electronic<span class="fw-normal">_Store</span> </a>
+        <a class="btn-add ms-auto me-5" href="/"><< Back</a>
+      </nav>
+    </header>
+    <!-- empty -->
+    <% if (!data.length) { %> <% if (messages.empty) { %>
+    <div class="alert alert-danger" role="alert"><%- messages.empty %></div>
+    <% } %> <% } %>
+    <div class="row products">
+      <% data.forEach(data => { %>
+      <div class="col-md-4 mb-3">
+        <div class="card ms-3" style="width: 90%">
+          <img src="images/<%= data.images %> " class="card-img-top" height="250px" />
+          <div class="card-body">
+            <h5 class="card-title fw-bold"><%= data.name %></h5>
+            <p>Rp. <%= data.price %></p>
+            <p class="text-muted">Stock : <%= data.quantity %></p>
+          </div>
+          <button onclick="return confirm('Are you sure delete whistlist ?')" style="background-color: transparent !important; border: solid 2px rgba(0, 0, 0, 0.212)">
+            <a href="/whistlist/delete/<%= data.id %>" class="btn fw-bold">Delete WhistList <i class="fas fa-trash-alt"></i></a>
+          </button>
+          <a href="/whistlist/buy/<%= data.id %>" class="btn btn-product fw-bold">Buy</a>
+        </div>
+      </div>
+      <% }) %>
+    </div>
+  </div>
+</div>
+<%- include('layout/footer') %>

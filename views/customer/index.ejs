@@ -17,6 +17,7 @@
     <header>
       <nav class="nav fixed-top shadow-sm">
         <a class="nav-link active nav-brand" href="/products"><i class="fas fa-cart-arrow-down"></i> Electronic<span class="fw-normal">_Store</span> </a>
+        <button class="btn btn-login ms-auto me-3"><a href="/whistlist">WhistList</a></button>
         <button class="btn btn-login ms-auto me-3"><a href="/login">Login</a></button>
       </nav>
     </header>
@@ -25,8 +26,8 @@
       <div class="row jumbotron">
         <% if (messages.successadd) { %>
         <div class="alert alert-danger" role="alert"><%- messages.successadd %></div>
-        <% } %> <% if (messages.success) { %>
-        <div class="alert alert-danger" role="alert"><%- messages.success %></div>
+        <% } %> <% if (messages.successWhistlist) { %>
+        <div class="alert alert-danger" role="alert"><%- messages.successWhistlist %></div>
         <% } %>
         <div class="col-md-4">
           <div class="content mt-5">
@@ -80,6 +81,7 @@
                 <p>Rp. <%= data.price %></p>
                 <p class="text-muted">Stock : <%= data.quantity %></p>
               </div>
+              <a href="/whistlist/<%= data.id_products %>" class="btn btn-product fw-bold" style="background-color: transparent !important; border: solid 2px rgba(0, 0, 0, 0.212)">WhistList <i class="fas fa-plus ms-2"></i></a>
               <a href="/buy/<%= data.id_products %>" class="btn btn-product fw-bold">Buy</a>
             </div>
           </div>

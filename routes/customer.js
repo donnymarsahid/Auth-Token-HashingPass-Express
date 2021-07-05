@@ -59,4 +59,54 @@ router.post('/save', function (req, res, next) {
   });
 });
 
+// Add to whistlist
+router.get('/whistlist/:whistlistId', function (req, res, next) {
+  let whistlistId = req.params.whistlistId;
+  let sql = `SELECT * FROM products where id_products = ${whistlistId}`;
+  let sqlWhistlist = `INSERT INTO whistlist SET ?`;
+  dbConnection.query(sql, (err, result) => {
+    if (err) throw err;
+    let form = { name: result[0].name, quantity: result[0].quantity, price: result[0].price, images: result[0].images };
+    dbConnection.query(sqlWhistlist, form, (err, rows) => {
+      req.flash('successWhistlist', 'success add to whistlist');
+      res.redirect('/');
+    });
+  });
+});
+
+// Get Data Whistlist
+router.get('/whistlist', function (req, res, next) {
+  dbConnection.query('SELECT * FROM whistlist ORDER BY id desc', function (err, rows) {
+    if (err) {
+      req.flash('error', err);
+      res.render('customer/whistlist', { data: '' });
+    } else {
+      req.flash('empty', 'whistlist not found !');
+      res.render('customer/whistlist', { data: rows });
+    }
+  });
+});
+
+// Get Data Buy From Whistlist
+router.get('/whistlist/buy/:buyListId', function (req, res, next) {
+  let buyListId = req.params.buyListId;
+  let sql = `SELECT * FROM whistlist where id = ${buyListId}`;
+  dbConnection.query(sql, (err, result) => {
+    if (err) throw err;
+    res.render('customer/buyWhistlist', {
+      data: result[0],
+    });
+  });
+});
+
+// Delete Whistlist
+router.get('/whistlist/delete/:deleteId', function (req, res, next) {
+  const deleteId = req.params.deleteId;
+  let sql = `DELETE FROM whistlist where id = ${deleteId}`;
+  dbConnection.query(sql, (err, result) => {
+    if (err) throw err;
+    res.redirect('/whistlist');
+  });
+});
+
 module.exports = router;
