@@ -48,11 +48,9 @@ router.post('/save', function (req, res, next) {
 
   // insert query
   dbConnection.query('INSERT INTO customer SET ?', formData, function (err, result) {
-    if (err) throw err;
     if (err) {
       req.flash('error', err);
 
-      // render to add.ejs
       res.render('customer/buy');
     } else {
       req.flash('successadd', 'successfully buy product ! <a href="https://gmail.com" style="text-decoration: none">cek your email to confirm </a>');

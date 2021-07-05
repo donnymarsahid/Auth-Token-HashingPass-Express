@@ -32,8 +32,8 @@ router.post('/login', (req, res, next) => {
   dbConnection.query('SELECT * FROM admin where username = ? and password = ?', [username, password], function (err, results, fields) {
     if (results.length > 0) {
       const authToken = generateAuthToken();
-      const user = results;
-      authTokens[authToken] = user;
+      const admin = results;
+      authTokens[authToken] = admin;
       res.cookie('AuthToken', authToken);
       res.redirect('/products');
     } else {
@@ -48,8 +48,8 @@ router.use((req, res, next) => {
   // Get auth token from the cookies
   const authToken = req.cookies['AuthToken'];
 
-  // Inject the user to the request
-  req.user = authTokens[authToken];
+  // Inject the admin to the request
+  req.admin = authTokens[authToken];
 
   next();
 });
@@ -57,7 +57,7 @@ router.use((req, res, next) => {
 // Get Products
 router.get('/', function (req, res, next) {
   dbConnection.query('SELECT * FROM products ORDER BY id_products desc', function (err, rows) {
-    if (req.user) {
+    if (req.admin) {
       res.render('products', {
         data: rows,
       });
@@ -90,36 +90,28 @@ router.post('/save', function (req, res, next) {
   if (name.length === 0) {
     errors = true;
 
-    // set flash message
     req.flash('error', 'Input Your Name !');
-    // render to add.ejs with flash message
     res.render('products/add');
   }
 
   if (quantity.length === 0) {
     errors = true;
 
-    // set flash message
     req.flash('error', 'Input Your Quantity !');
-    // render to add.ejs with flash message
     res.render('products/add');
   }
 
   if (price.length === 0) {
     errors = true;
 
-    // set flash message
     req.flash('error', 'Input Your Price !');
-    // render to add.ejs with flash message
     res.render('products/add');
   }
 
   if (images.length === 0) {
     errors = true;
 
-    // set flash message
     req.flash('error', 'Input Your Images !');
-    // render to add.ejs with flash message
     res.render('products/add');
   }
 
@@ -129,11 +121,9 @@ router.post('/save', function (req, res, next) {
 
     // insert query
     dbConnection.query('INSERT INTO products SET ?', formData, function (err, result) {
-      //if(err) throw err
       if (err) {
         req.flash('error', err);
 
-        // render to add.ejs
         res.render('products/add');
       } else {
         req.flash('successadd', 'successfully added product !');
@@ -157,8 +147,8 @@ router.get('/edit/:userId', function (req, res, next) {
 
 // Edit Products Post
 router.post('/update', (req, res) => {
-  let sql = "UPDATE products SET name='" + req.body.name + "', quantity='" + req.body.quantity + "', price='" + req.body.price + "', images='" + req.body.images + "' WHERE id_products=" + req.body.id_products;
-  let query = dbConnection.query(sql, (err, results) => {
+  let sql = "UPDATE products SET name= '" + req.body.name + "', quantity='" + req.body.quantity + "', price='" + req.body.price + "', images='" + req.body.images + "' WHERE id_products=" + req.body.id_products;
+  dbConnection.query(sql, (err, results) => {
     if (err) {
       console.log(err);
     } else {
