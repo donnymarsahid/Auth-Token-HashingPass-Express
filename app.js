@@ -6,7 +6,6 @@ var logger = require('morgan');
 var methodOverride = require('method-override');
 var session = require('express-session');
 var flash = require('express-flash');
-var flush = require('connect-flash');
 
 var customerRouter = require('./routes/customer');
 var loginRouter = require('./routes/login');
@@ -23,15 +22,9 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
-
-// flush
-
-// method override
 app.use(methodOverride('X-HTTP-Method-Override'));
 
 // express-session
-
-// express-flash
 app.use(
   session({
     secret: 'secret',
@@ -40,6 +33,7 @@ app.use(
     saveUninitialized: true,
   })
 );
+// express-flash
 app.use(flash());
 
 app.use('/', customerRouter);
